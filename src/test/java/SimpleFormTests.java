@@ -21,7 +21,7 @@ public class SimpleFormTests {
     @Test
     public void fillingSimpleFormWithBasicTextTest() {
         WebElement inputMessageField = driver.findElement(By.cssSelector(".form-group #user-message"));
-        inputMessageField.sendKeys("hello world");
+        inputMessageField.sendKeys("hello ssworld");
 
         WebElement showMessageButton = driver.findElement(By.xpath("//form[@id='get-input']/button"));
         showMessageButton.click();
@@ -29,7 +29,7 @@ public class SimpleFormTests {
 
         WebElement yourMessageDisplay = driver.findElement(By.xpath("//div[@id='user-message']/span"));
 
-        assertEquals("hello world", yourMessageDisplay.getAttribute("textContent"));
+        assertEquals("hello ssworld", yourMessageDisplay.getAttribute("textContent"));
     }
 
     private void sleep() {
