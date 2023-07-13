@@ -28,7 +28,7 @@ public class SimpleFormTests {
         sleep();
 
         SimpleFormPage simpleFormPage = new SimpleFormPage(driver);
-        simpleFormPage.typeIntoInputMessageField();
+        simpleFormPage.typeIntoInputMessageField("hello world");
         simpleFormPage.clickShowMessageButton();
 
         String message = simpleFormPage.getMessage();
@@ -39,19 +39,22 @@ public class SimpleFormTests {
 
     @Test
     public void fillingTwoInputFieldsFormTest() {
-        WebElement enterAInputField = driver.findElement(By.cssSelector("input[name='sum1']"));
-        WebElement enterBInputField = driver.findElement(By.cssSelector("input[name='sum2']"));
-        WebElement getTotalButton = driver.findElement(By.cssSelector("button[class='btn btn-primary'][onclick='return total()']"));
-        WebElement displayValueMessage = driver.findElement(By.cssSelector("#displayvalue"));
-
-        enterAInputField.sendKeys("2");
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnStartButton();
         sleep();
-        enterBInputField.sendKeys("3");
-        sleep();
-        getTotalButton.click();
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage(driver);
+        basicExamplesPage.clickSimpleFormDemoButton();
         sleep();
 
-        assertEquals(displayValueMessage.getText(), "5");
+        SimpleFormPage simpleFormPage = new SimpleFormPage(driver);
+        simpleFormPage.typeIntoEnterAInputField("2");
+        simpleFormPage.typeIntoEnterBInputField("3");
+        sleep();
+
+        simpleFormPage.clickGetTotalButton();
+        String totalValue = simpleFormPage.getTotalValue();
+
+        assertEquals(totalValue, "5");
     }
 
     private void sleep() {

@@ -9,9 +9,9 @@ public class SimpleFormPage {
         this.driver = driver;
     }
 
-    public void typeIntoInputMessageField() {
+    public void typeIntoInputMessageField(String message) {
         WebElement inputMessageField = driver.findElement(By.cssSelector(".form-group #user-message"));
-        inputMessageField.sendKeys("hello world");
+        inputMessageField.sendKeys(message);
     }
 
     public void clickShowMessageButton() {
@@ -25,14 +25,14 @@ public class SimpleFormPage {
         return message;
     }
 
-    public void typeIntoEnterAInputField() {
+    public void typeIntoEnterAInputField(String aInput) {
         WebElement enterAInputField = driver.findElement(By.cssSelector("input[name='sum1']"));
-        enterAInputField.sendKeys("2");
+        enterAInputField.sendKeys(aInput);
     }
 
-    public void typeIntoEnterBInputField() {
+    public void typeIntoEnterBInputField(String bInput) {
         WebElement enterBInputField = driver.findElement(By.cssSelector("input[name='sum2']"));
-        enterBInputField.sendKeys("3");
+        enterBInputField.sendKeys(bInput);
     }
 
     public void clickGetTotalButton() {
