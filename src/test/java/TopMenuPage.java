@@ -1,8 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class TopMenuPage {
+
+    @FindBy(css="a[title='Home'][style='border: medium none;']")
+    WebElement pageLogo;
 
     private WebDriver driver;
 
@@ -11,7 +15,6 @@ public class TopMenuPage {
     }
 
     public void clickOnPageLogo() {
-        WebElement pageLogo = driver.findElement(By.cssSelector("a[title='Home'][style='border: medium none;']"));
         pageLogo.click();
     }
 }
