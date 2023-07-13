@@ -15,26 +15,48 @@ public class SimpleFormTests {
     public void beforeTest() {
         System.setProperty("webdriver.chrome.driver", "C:/drivers/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.navigate().to("https://demo.seleniumeasy.com/basic-first-form-demo.html");
+        driver.navigate().to("https://demo.seleniumeasy.com");
     }
 
     @Test
     public void fillingSimpleFormWithBasicTextTest() {
-        WebElement inputMessageField = driver.findElement(By.cssSelector(".form-group #user-message"));
-        inputMessageField.sendKeys("hello ssworld");
-
-        WebElement showMessageButton = driver.findElement(By.xpath("//form[@id='get-input']/button"));
-        showMessageButton.click();
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnStartButton();
+        sleep();
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage(driver);
+        basicExamplesPage.clickSimpleFormDemoButton();
         sleep();
 
-        WebElement yourMessageDisplay = driver.findElement(By.xpath("//div[@id='user-message']/span"));
+        SimpleFormPage simpleFormPage = new SimpleFormPage(driver);
+        simpleFormPage.typeIntoInputMessageField();
+        simpleFormPage.clickShowMessageButton();
 
-        assertEquals("hello ssworld", yourMessageDisplay.getAttribute("textContent"));
+        String message = simpleFormPage.getMessage();
+        sleep();
+
+        assertEquals(message, "hello world");
+    }
+
+    @Test
+    public void fillingTwoInputFieldsFormTest() {
+        WebElement enterAInputField = driver.findElement(By.cssSelector("input[name='sum1']"));
+        WebElement enterBInputField = driver.findElement(By.cssSelector("input[name='sum2']"));
+        WebElement getTotalButton = driver.findElement(By.cssSelector("button[class='btn btn-primary'][onclick='return total()']"));
+        WebElement displayValueMessage = driver.findElement(By.cssSelector("#displayvalue"));
+
+        enterAInputField.sendKeys("2");
+        sleep();
+        enterBInputField.sendKeys("3");
+        sleep();
+        getTotalButton.click();
+        sleep();
+
+        assertEquals(displayValueMessage.getText(), "5");
     }
 
     private void sleep() {
         try {
-            Thread.sleep(2500);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
