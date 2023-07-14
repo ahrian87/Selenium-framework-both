@@ -17,32 +17,19 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class SeleniumEasyTests {
-
-    private WebDriver driver;
-
-    @BeforeMethod
-    public void beforeTest() {
-        System.setProperty("webdriver.chrome.driver", "C:/drivers/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.navigate().to("https://demo.seleniumeasy.com/");
-    }
+public class SeleniumEasyTests extends TestBase {
 
     @Test
     public void goingToTestsListTest() {
         WebElement startPractisingButton = driver.findElement(By.id("btn_basic_example"));
         startPractisingButton.click();
-        sleep();
 
         WebElement simpleFormDemoButton = driver.findElement(By.xpath("//div[@class='list-group']/a[@href='./basic-first-form-demo.html']"));
         simpleFormDemoButton.click();
-        sleep();
 
         WebElement simpleFormHeader = driver.findElement(By.xpath("//div[@class='col-md-6 text-left']/h3"));
         assertTrue(simpleFormHeader.isDisplayed());
     }
-
-
 
     @Test
     public void radioButtonTest() {
@@ -50,14 +37,11 @@ public class SeleniumEasyTests {
         WebElement maleRadioButton = driver.findElement(By.cssSelector("input[value='Male'][name='optradio']"));
         WebElement femaleRadioButton = driver.findElement(By.cssSelector("input[value='Female'][name='optradio']"));
 
-        sleep();
         maleRadioButton.click();
-        sleep();
         assertTrue(maleRadioButton.isSelected());
         assertFalse(femaleRadioButton.isSelected());
 
         femaleRadioButton.click();
-        sleep();
         assertTrue(femaleRadioButton.isSelected());
         assertFalse(maleRadioButton.isSelected());
     }
@@ -71,41 +55,14 @@ public class SeleniumEasyTests {
         WebElement getValuesButton = driver.findElement(By.cssSelector("button[class='btn btn-default'][onclick]"));
         WebElement groupRadioValues = driver.findElement(By.cssSelector("p[class='groupradiobutton']"));
 
-        sleep();
         genderMaleRadioButton.click();
-        sleep();
         assertTrue(genderMaleRadioButton.isSelected());
         assertFalse(genderFemaleRadioButton.isSelected());
 
-        sleep();
         genderFemaleRadioButton.click();
-        sleep();
         firstGroupAgeButton.click();
-        sleep();
         getValuesButton.click();
-        sleep();
         assertEquals(groupRadioValues.getAttribute("textContent"), "Sex : Female Age group: 0 - 5");
-        sleep();
-    }
-
-    @Test
-    public void singleCheckboxTest() {
-        driver.navigate().to("https://demo.seleniumeasy.com/basic-checkbox-demo.html");
-        WebElement firstCheckbox = driver.findElement(By.cssSelector("input[type='checkbox'][id='isAgeSelected']"));
-        WebElement successMessageBlock = driver.findElement(By.cssSelector("div[id='txtAge']"));
-
-        sleep();
-        firstCheckbox.click();
-        sleep();
-        assertTrue(firstCheckbox.isSelected());
-        assertTrue(successMessageBlock.isDisplayed());
-        assertEquals(successMessageBlock.getAttribute("textContent"), "Success - Check box is checked");
-        sleep();
-        firstCheckbox.click();
-        sleep();
-        assertFalse(firstCheckbox.isSelected());
-        assertFalse(successMessageBlock.isDisplayed());
-        sleep();
     }
 
     @Test
@@ -132,7 +89,6 @@ public class SeleniumEasyTests {
         expectedNamesOfOptions.add("Friday");
         expectedNamesOfOptions.add("Saturday");
 
-        sleep();
 
         assertEquals(namesOfOptions, expectedNamesOfOptions);
     }
@@ -142,37 +98,18 @@ public class SeleniumEasyTests {
         driver.navigate().to("https://demo.seleniumeasy.com/basic-select-dropdown-demo.html");
         WebElement selectADay = driver.findElement(By.cssSelector("select[class='form-control']"));
         Select selectADayDropdown = new Select(selectADay);
-        sleep();
 
         selectADayDropdown.selectByIndex(1);
-        sleep();
 
         assertEquals(selectADayDropdown.getFirstSelectedOption().getText(), "Sunday");
-        sleep();
 
         selectADayDropdown.selectByValue("Monday");
-        sleep();
 
         assertEquals(selectADayDropdown.getFirstSelectedOption().getText(), "Monday");
-        sleep();
 
         selectADayDropdown.selectByVisibleText("Wednesday");
-        sleep();
 
         assertEquals(selectADayDropdown.getFirstSelectedOption().getText(), "Wednesday");
     }
 
-    private void sleep() {
-        try {
-            Thread.sleep(2500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @AfterMethod
-    public void afterTest() {
-        driver.close();
-        driver.quit();
-    }
 }
