@@ -13,7 +13,7 @@ public class CheckboxTests extends TestBase {
 
     @Test
     public void singleCheckboxTest() {
-        LandingPage landingPage = new LandingPage(driver);
+        LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
 

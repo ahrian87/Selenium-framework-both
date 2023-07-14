@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 public class SimpleFormTests extends TestBase{
     @Test
     public void fillingSimpleFormWithBasicTextTest() {
-        LandingPage landingPage = new LandingPage(driver);
+        LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
         BasicExamplesPage basicExamplesPage = new BasicExamplesPage(driver);
@@ -27,7 +27,7 @@ public class SimpleFormTests extends TestBase{
 
     @Test
     public void fillingTwoInputFieldsFormTest() {
-        LandingPage landingPage = new LandingPage(driver);
+        LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
         BasicExamplesPage basicExamplesPage = new BasicExamplesPage(driver);
