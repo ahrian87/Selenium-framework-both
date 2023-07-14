@@ -42,12 +42,10 @@ public class SimpleFormPage {
     }
 
     public void clickShowMessageButton() {
-        WaitForElement.waitUntilElementIsClickable(showMessageButton);
         showMessageButton.click();
     }
 
     public String getMessage() {
-        WaitForElement.waitUntilElementIsVisible(showMessageValue);
         String message = showMessageValue.getText();
         return message;
     }
@@ -58,17 +56,14 @@ public class SimpleFormPage {
     }
 
     public void typeIntoEnterBInputField(String bInput) {
-        WaitForElement.waitUntilElementIsVisible(enterBInputField);
         enterBInputField.sendKeys(bInput);
     }
 
     public void clickGetTotalButton() {
-        WaitForElement.waitUntilElementIsClickable(getTotalButton);
         getTotalButton.click();
     }
 
     public String getTotalValue() {
-        WaitForElement.waitUntilElementIsVisible(totalValueMessage);
         String totalValue = totalValueMessage.getText();
         return totalValue;
     }

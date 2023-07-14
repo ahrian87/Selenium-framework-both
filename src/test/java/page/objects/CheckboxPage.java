@@ -26,7 +26,6 @@ public class CheckboxPage {
     }
 
     public boolean isSuccessMessageDisplayed() {
-        WaitForElement.waitUntilElementIsVisible(successMessageBlock);
         boolean isDisplayed = successMessageBlock.isDisplayed();
         return isDisplayed;
     }

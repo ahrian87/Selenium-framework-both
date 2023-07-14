@@ -16,10 +16,8 @@ public class CheckboxTests extends TestBase {
         LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
-
         BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
         basicExamplesPage.clickCheckBoxDemoButton();
-
 
         CheckboxPage checkboxPage = new CheckboxPage();
         checkboxPage.clickOnFirstCheckbox();
