@@ -1,5 +1,6 @@
 package page.objects;
 
+import driver.manager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,11 +12,8 @@ public class TopMenuPage {
     @FindBy(css="a[title='Home'][style='border: medium none;']")
     WebElement pageLogo;
 
-    private WebDriver driver;
-
     public TopMenuPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
     public void clickOnPageLogo() {

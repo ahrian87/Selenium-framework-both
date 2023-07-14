@@ -1,5 +1,6 @@
 package page.objects;
 
+import driver.manager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,11 +33,9 @@ public class BasicExamplesPage {
     @FindBy(css="a[href='./bootstrap-modal-demo.html'][class='list-group-item']")
     private WebElement bootstrapModalsButton;
 
-    private WebDriver driver;
 
     public BasicExamplesPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
     public void clickSimpleFormDemoButton() {

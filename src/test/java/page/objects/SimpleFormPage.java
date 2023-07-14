@@ -1,5 +1,6 @@
 package page.objects;
 
+import driver.manager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,11 +30,9 @@ public class SimpleFormPage {
     @FindBy(css="#displayvalue")
     WebElement totalValueMessage;
 
-    private WebDriver driver;
 
     public SimpleFormPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
     public void typeIntoInputMessageField(String message) {

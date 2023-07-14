@@ -1,5 +1,6 @@
 package page.objects;
 
+import driver.manager.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,11 +14,9 @@ public class CheckboxPage {
     @FindBy(css="div[id='txtAge']")
     WebElement successMessageBlock;
 
-    private WebDriver driver;
 
     public CheckboxPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
     public void clickOnFirstCheckbox() {
