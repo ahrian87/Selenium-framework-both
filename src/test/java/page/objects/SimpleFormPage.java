@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.WaitForElement;
 
 public class SimpleFormPage {
 
@@ -36,31 +37,38 @@ public class SimpleFormPage {
     }
 
     public void typeIntoInputMessageField(String message) {
+        WaitForElement.waitUntilElementIsVisible(inputMessageField);
         inputMessageField.sendKeys(message);
     }
 
     public void clickShowMessageButton() {
+        WaitForElement.waitUntilElementIsClickable(showMessageButton);
         showMessageButton.click();
     }
 
     public String getMessage() {
+        WaitForElement.waitUntilElementIsVisible(showMessageValue);
         String message = showMessageValue.getText();
         return message;
     }
 
     public void typeIntoEnterAInputField(String aInput) {
+        WaitForElement.waitUntilElementIsVisible(enterAInputField);
         enterAInputField.sendKeys(aInput);
     }
 
     public void typeIntoEnterBInputField(String bInput) {
+        WaitForElement.waitUntilElementIsVisible(enterBInputField);
         enterBInputField.sendKeys(bInput);
     }
 
     public void clickGetTotalButton() {
+        WaitForElement.waitUntilElementIsClickable(getTotalButton);
         getTotalButton.click();
     }
 
     public String getTotalValue() {
+        WaitForElement.waitUntilElementIsVisible(totalValueMessage);
         String totalValue = totalValueMessage.getText();
         return totalValue;
     }

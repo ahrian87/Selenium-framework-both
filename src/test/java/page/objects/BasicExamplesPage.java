@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.WaitForElement;
 
 public class BasicExamplesPage {
 
@@ -39,34 +40,42 @@ public class BasicExamplesPage {
     }
 
     public void clickSimpleFormDemoButton() {
+        WaitForElement.waitUntilElementIsClickable(simpleFormDemoButton);
         simpleFormDemoButton.click();
     }
 
     public void clickCheckBoxDemoButton() {
+        WaitForElement.waitUntilElementIsClickable(checkBoxDemoButton);
         checkBoxDemoButton.click();
     }
 
     public void clickRadioButtonsDemoButton() {
+        WaitForElement.waitUntilElementIsClickable(radioButtonsDemoButton);
         radioButtonsDemoButton.click();
     }
 
     public void clickSelectDropdownListButton() {
+        WaitForElement.waitUntilElementIsClickable(selectDropdownListButton);
         selectDropdownListButton.click();
     }
 
     public void clickJavascriptAlertsButton() {
+        WaitForElement.waitUntilElementIsClickable(javascriptAlertsButton);
         javascriptAlertsButton.click();
     }
 
     public void clickWindowPopupModalButton() {
+        WaitForElement.waitUntilElementIsClickable(windowPopupModalButton);
         windowPopupModalButton.click();
     }
 
     public void clickBootstrapAlertsButton() {
+        WaitForElement.waitUntilElementIsClickable(bootstrapAlertsButton);
         bootstrapAlertsButton.click();
     }
 
     public void clickBootstrapModalsButton() {
+        WaitForElement.waitUntilElementIsClickable(bootstrapModalsButton);
         bootstrapModalsButton.click();
     }
 }
