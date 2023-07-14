@@ -34,7 +34,7 @@ public class BasicExamplesPage {
     private WebElement bootstrapModalsButton;
 
 
-    public BasicExamplesPage(WebDriver driver) {
+    public BasicExamplesPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 

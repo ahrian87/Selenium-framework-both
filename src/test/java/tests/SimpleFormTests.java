@@ -13,10 +13,10 @@ public class SimpleFormTests extends TestBase{
         LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage(driver);
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
         basicExamplesPage.clickSimpleFormDemoButton();
 
-        SimpleFormPage simpleFormPage = new SimpleFormPage(driver);
+        SimpleFormPage simpleFormPage = new SimpleFormPage();
         simpleFormPage.typeIntoInputMessageField("hello world");
         simpleFormPage.clickShowMessageButton();
 
@@ -30,10 +30,10 @@ public class SimpleFormTests extends TestBase{
         LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage(driver);
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
         basicExamplesPage.clickSimpleFormDemoButton();
 
-        SimpleFormPage simpleFormPage = new SimpleFormPage(driver);
+        SimpleFormPage simpleFormPage = new SimpleFormPage();
         simpleFormPage.typeIntoEnterAInputField("2");
         simpleFormPage.typeIntoEnterBInputField("3");
 

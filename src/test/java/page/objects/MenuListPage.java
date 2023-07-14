@@ -10,7 +10,7 @@ public class MenuListPage {
     @FindBy(xpath="//ul[@id='treemenu']//a[contains(text(), 'Input Forms')]")
     WebElement inputFormsLink;
 
-    public MenuListPage(WebDriver driver) {
+    public MenuListPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 

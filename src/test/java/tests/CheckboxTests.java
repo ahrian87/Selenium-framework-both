@@ -17,11 +17,11 @@ public class CheckboxTests extends TestBase {
         landingPage.clickOnStartButton();
 
 
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage(driver);
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
         basicExamplesPage.clickCheckBoxDemoButton();
 
 
-        CheckboxPage checkboxPage = new CheckboxPage(driver);
+        CheckboxPage checkboxPage = new CheckboxPage();
         checkboxPage.clickOnFirstCheckbox();
 
 

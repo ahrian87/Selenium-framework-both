@@ -12,7 +12,7 @@ public class TopMenuPage {
     @FindBy(css="a[title='Home'][style='border: medium none;']")
     WebElement pageLogo;
 
-    public TopMenuPage(WebDriver driver) {
+    public TopMenuPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 

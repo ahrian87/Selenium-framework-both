@@ -15,7 +15,7 @@ public class CheckboxPage {
     WebElement successMessageBlock;
 
 
-    public CheckboxPage(WebDriver driver) {
+    public CheckboxPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 

@@ -31,7 +31,7 @@ public class SimpleFormPage {
     WebElement totalValueMessage;
 
 
-    public SimpleFormPage(WebDriver driver) {
+    public SimpleFormPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
