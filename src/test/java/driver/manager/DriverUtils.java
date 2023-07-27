@@ -1,6 +1,5 @@
 package driver.manager;
 
-import java.time.Duration;
 
 public class DriverUtils {
 
