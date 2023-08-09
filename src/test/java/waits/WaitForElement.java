@@ -22,4 +22,9 @@ public class WaitForElement {
         WebDriverWait webDriverWait = getWebDriverWait();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public static void waitUntilElementHasText(WebElement element) {
+        WebDriverWait webDriverWait = getWebDriverWait();
+        webDriverWait.until(ExpectedConditions.textToBePresentInElement(element, element.getText()));
+    }
 }

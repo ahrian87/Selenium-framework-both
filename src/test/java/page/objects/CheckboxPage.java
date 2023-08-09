@@ -32,7 +32,7 @@ public class CheckboxPage {
     @FindBy(xpath="(//input[@class='cb1-element'])[4]")
     WebElement fourthOptionCheckbox;
 
-    @FindBy(xpath="//input[@value='Check All']")
+    @FindBy(xpath="//input[@id='check1']")
     WebElement checkAllButton;
 
     public CheckboxPage() {
@@ -110,6 +110,7 @@ public class CheckboxPage {
     }
 
     public String getCheckAllButtonText() {
-        return checkAllButton.getText();
+        WaitForElement.waitUntilElementIsVisible(checkAllButton);
+        return checkAllButton.getAttribute("value");
     }
 }
