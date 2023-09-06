@@ -95,5 +95,27 @@ public class CheckboxTests extends TestBase {
     public void checkAllAndUncheckAllWithButtonsTest() {
         LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
+
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
+        basicExamplesPage.clickCheckBoxDemoButton();
+
+        CheckboxPage checkboxPage = new CheckboxPage();
+        assertEquals(checkboxPage.getCheckAllButtonText(), "Check All");
+
+        checkboxPage.clickOnCheckAllButton();
+
+        assertTrue(checkboxPage.isFirstOptionCheckboxSelected());
+        assertTrue(checkboxPage.isSecondOptionCheckboxSelected());
+        assertTrue(checkboxPage.isThirdOptionCheckboxSelected());
+        assertTrue(checkboxPage.isFourthOptionCheckboxSelected());
+        assertEquals(checkboxPage.getCheckAllButtonText(), "Uncheck All");
+
+        checkboxPage.clickOnCheckAllButton();
+        assertFalse(checkboxPage.isFirstOptionCheckboxSelected());
+        assertFalse(checkboxPage.isSecondOptionCheckboxSelected());
+        assertFalse(checkboxPage.isThirdOptionCheckboxSelected());
+        assertFalse(checkboxPage.isFourthOptionCheckboxSelected());
+        assertEquals(checkboxPage.getCheckAllButtonText(), "Check All");
+
     }
 }
