@@ -82,6 +82,7 @@ public class CheckboxPage {
     }
 
     public boolean isSuccessMessageDisplayed() {
+        logger.info("Success message is displayed");
         return successMessageBlock.isDisplayed();
     }
 
