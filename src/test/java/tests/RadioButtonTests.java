@@ -8,7 +8,7 @@ import page.objects.RadioButtonsPage;
 import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.*;
 
-public class RadioButtonTests {
+public class RadioButtonTests extends TestBase {
 
     @Test
     public void getCheckedValueWithoutAnyButtonsTest() {
@@ -21,6 +21,9 @@ public class RadioButtonTests {
         RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
         radioButtonsPage.clickCheckedValueButton();
 
-        assertFalse
+        assertFalse(radioButtonsPage.isMaleButtonSelected());
+        assertFalse(radioButtonsPage.isFemaleButtonSelected());
+
+        assertEquals(radioButtonsPage.getCheckedValueButtonText(), "Get Checked value");
     }
 }

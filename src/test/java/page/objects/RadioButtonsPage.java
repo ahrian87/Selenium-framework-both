@@ -47,4 +47,12 @@ public class RadioButtonsPage {
         WaitForElement.waitUntilElementIsVisible(checkedValueButton);
         return checkedValueButton.getText();
     }
+
+    public boolean isMaleButtonSelected() {
+        return maleButton.isSelected();
+    }
+
+    public boolean isFemaleButtonSelected() {
+        return femaleButton.isSelected();
+    }
 }
