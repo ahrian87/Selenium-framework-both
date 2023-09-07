@@ -18,6 +18,9 @@ public class RadioButtonsPage {
     @FindBy(css="input[value='Female'][name='optradio']")
     WebElement femaleButton;
 
+    @FindBy(xpath=("(//button[@class='btn btn-default'])[1]"))
+    WebElement checkedValueButton;
+
     public RadioButtonsPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -32,5 +35,16 @@ public class RadioButtonsPage {
         WaitForElement.waitUntilElementIsVisible(femaleButton);
         femaleButton.click();
         logger.info("Click on Female button");
+    }
+
+    public void clickCheckedValueButton() {
+        WaitForElement.waitUntilElementIsVisible(checkedValueButton);
+        checkedValueButton.click();
+        logger.info("Click on Get Checked value button");
+    }
+
+    public String getCheckedValueButtonText() {
+        WaitForElement.waitUntilElementIsVisible(checkedValueButton);
+        return checkedValueButton.getText();
     }
 }
