@@ -21,8 +21,14 @@ public class RadioButtonsPage {
     @FindBy(xpath=("(//button[@class='btn btn-default'])[1]"))
     WebElement checkedValueButton;
 
+    @FindBy(xpath=("(//button[@class='btn btn-default'])[2]"))
+    WebElement getValuesButton;
+
     @FindBy(xpath=("//p[@class='radiobutton']"))
     WebElement radioButtonMessage;
+
+    @FindBy(css="p.groupradiobutton")
+    WebElement groupRadioButtonTextField;
 
     public RadioButtonsPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
@@ -46,10 +52,22 @@ public class RadioButtonsPage {
         logger.info("Click on Get Checked value button");
     }
 
+    public void clickGetValuesButton() {
+        WaitForElement.waitUntilElementIsClickable(getValuesButton);
+        getValuesButton.click();
+        logger.info("Click on Get values button");
+    }
+
     public String getRadioButtonMessageText() {
         WaitForElement.waitUntilElementIsVisible(radioButtonMessage);
         logger.info("Checked radio button message text");
         return radioButtonMessage.getText();
+    }
+
+    public String getGroupRadioButtonMessageText() {
+        WaitForElement.waitUntilElementIsVisible(groupRadioButtonTextField);
+        logger.info("checked group radio button message text");
+        return groupRadioButtonTextField.getText();
     }
 
     public boolean isMaleButtonSelected() {

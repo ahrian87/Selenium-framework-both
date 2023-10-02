@@ -60,4 +60,19 @@ public class RadioButtonTests extends TestBase {
         radioButtonsPage.clickCheckedValueButton();
         assertEquals(radioButtonsPage.getRadioButtonMessageText(), "Radio button 'Female' is checked");
     }
+
+    @Test
+    public void groupButtonsNoSelectionTest() {
+        LandingPage landingPage = new LandingPage();
+        landingPage.clickOnStartButton();
+
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
+        basicExamplesPage.clickRadioButtonsDemoButton();
+
+        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage.clickGetValuesButton();
+
+        assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex :\n" +
+                "Age group:");
+    }
 }
