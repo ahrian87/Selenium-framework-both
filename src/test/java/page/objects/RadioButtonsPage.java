@@ -36,6 +36,15 @@ public class RadioButtonsPage {
     @FindBy(css="input[value='Female'][name='gender']")
     WebElement femaleGroupButton;
 
+    @FindBy(css="input[value='0 - 5'][name='ageGroup']")
+    WebElement firstAgeGroup;
+
+    @FindBy(css="input[value='5 - 15'][name='ageGroup']")
+    WebElement secondAgeGroup;
+
+    @FindBy(css="input[value='15 - 50'][name='ageGroup']")
+    WebElement thirdAgeGroup;
+
     public RadioButtonsPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -86,6 +95,24 @@ public class RadioButtonsPage {
         WaitForElement.waitUntilElementIsClickable(femaleGroupButton);
         femaleGroupButton.click();
         logger.info("Click on Female button in group radio buttons section");
+    }
+
+    public void clickFirstAgeGroupButton() {
+        WaitForElement.waitUntilElementIsClickable(firstAgeGroup);
+        firstAgeGroup.click();
+        logger.info("Click on first age group button");
+    }
+
+    public void clickSecondAgeGroupButton() {
+        WaitForElement.waitUntilElementIsClickable(firstAgeGroup);
+        secondAgeGroup.click();
+        logger.info("Click on second age group button");
+    }
+
+    public void clickThirdAgeGroupButton() {
+        WaitForElement.waitUntilElementIsClickable(firstAgeGroup);
+        thirdAgeGroup.click();
+        logger.info("Click on third age group button");
     }
 
     public boolean isMaleButtonSelected() {

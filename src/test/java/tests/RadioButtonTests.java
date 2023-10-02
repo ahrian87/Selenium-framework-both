@@ -109,4 +109,9 @@ public class RadioButtonTests extends TestBase {
                 "Age group:");
 
     }
+
+    @Test
+    public void genderAndAgeSelectedTest() {
+
+    }
 }
