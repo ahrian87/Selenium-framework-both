@@ -92,4 +92,21 @@ public class RadioButtonTests extends TestBase {
                 "Age group:");
 
     }
+
+    @Test
+    public void groupButtonsFemaleButtonSelectedTest() {
+        LandingPage landingPage = new LandingPage();
+        landingPage.clickOnStartButton();
+
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
+        basicExamplesPage.clickRadioButtonsDemoButton();
+
+        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage.clickFemaleGroupButton();
+        radioButtonsPage.clickGetValuesButton();
+
+        assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex : Female\n" +
+                "Age group:");
+
+    }
 }
