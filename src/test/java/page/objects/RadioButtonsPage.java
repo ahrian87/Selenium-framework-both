@@ -30,6 +30,12 @@ public class RadioButtonsPage {
     @FindBy(css="p.groupradiobutton")
     WebElement groupRadioButtonTextField;
 
+    @FindBy(css="input[value='Male'][name='gender']")
+    WebElement maleGroupButton;
+
+    @FindBy(css="input[value='Female'][name='gender']")
+    WebElement femaleGroupButton;
+
     public RadioButtonsPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -66,8 +72,20 @@ public class RadioButtonsPage {
 
     public String getGroupRadioButtonMessageText() {
         WaitForElement.waitUntilElementIsVisible(groupRadioButtonTextField);
-        logger.info("checked group radio button message text");
+        logger.info("Checked group radio button message text");
         return groupRadioButtonTextField.getText();
+    }
+
+    public void clickMaleGroupButton() {
+        WaitForElement.waitUntilElementIsClickable(maleGroupButton);
+        maleGroupButton.click();
+        logger.info("Click on Male button in group radio buttons section");
+    }
+
+    public void clickFemaleGroupButton() {
+        WaitForElement.waitUntilElementIsClickable(femaleGroupButton);
+        femaleGroupButton.click();
+        logger.info("Click on Female button in group radio buttons section");
     }
 
     public boolean isMaleButtonSelected() {
