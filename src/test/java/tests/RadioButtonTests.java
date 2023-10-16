@@ -28,7 +28,7 @@ public class RadioButtonTests extends TestBase {
     }
 
     @Test
-    public void selectingMaleButton() {
+    public void selectingMaleButtonTest() {
         LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
@@ -45,7 +45,7 @@ public class RadioButtonTests extends TestBase {
     }
 
     @Test
-    public void selectingFemaleButton() {
+    public void selectingFemaleButtonTest() {
         LandingPage landingPage = new LandingPage();
         landingPage.clickOnStartButton();
 
@@ -132,5 +132,12 @@ public class RadioButtonTests extends TestBase {
 
         assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex : Female\n" +
                 "Age group: 5 - 15");
+
+        radioButtonsPage.clickFemaleGroupButton();
+        radioButtonsPage.clickThirdAgeGroupButton();
+        radioButtonsPage.clickGetValuesButton();
+
+        assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex : Female\n" +
+                "Age group: 15 - 50");
     }
 }
