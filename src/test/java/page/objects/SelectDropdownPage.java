@@ -45,7 +45,7 @@ public class SelectDropdownPage extends TestBase {
         return selectDaySelect.getFirstSelectedOption().getText();
     }
 
-    public void selectOneState(String state) {
+    public void selectOneStateAndCheckIt(String state) {
         selectStateSelect.selectByVisibleText(state);
         logger.info("Select one state - " + state);
         WaitForElement.waitUntilElementIsVisible(firstSelectedButton);

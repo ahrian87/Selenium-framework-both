@@ -32,7 +32,7 @@ public class SelectDropdownTests extends TestBase {
         basicExamplesPage.clickSelectDropdownListButton();
 
         SelectDropdownPage selectDropdownPage = new SelectDropdownPage();
-        selectDropdownPage.selectOneState("Ohio");
+        selectDropdownPage.selectOneStateAndCheckIt("Ohio");
 
         assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "First selected option is : Ohio");
     }
