@@ -19,8 +19,16 @@ public class JavaScriptAlertsPage {
     @FindBy(xpath = "//button[@onclick='myAlertFunction()']")
     WebElement javaScriptAlertBoxButton;
 
+    @FindBy(xpath = "//button[@onclick='myConfirmFunction()']")
+    WebElement javaScriptConfirmBoxButton;
+
     public JavaScriptAlertsPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
+    }
+
+    public void waitForAlert() {
+        alert = DriverManager.getWebDriver().switchTo().alert();
+        WaitForElement.waitUntilAlertIsVisible(alert);
     }
 
     public void clickJavaScriptAlertBoxButton() {
@@ -30,15 +38,13 @@ public class JavaScriptAlertsPage {
     }
 
     public void closeAlertBox() {
-        alert = DriverManager.getWebDriver().switchTo().alert();
-        WaitForElement.waitUntilAlertIsVisible(alert);
+        waitForAlert();
         alert.accept();
         logger.info("Close alert box");
     }
 
     public boolean isAlertVisible() {
-        alert = DriverManager.getWebDriver().switchTo().alert();
-        WaitForElement.waitUntilAlertIsVisible(alert);
+        waitForAlert();
         logger.info("Check if alert is displayed");
         return alert.getText() != null;
     }
