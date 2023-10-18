@@ -24,6 +24,12 @@ public class JavaScriptAlertsPage {
     @FindBy(css = "#confirm-demo")
     WebElement confirmationMessage;
 
+    @FindBy(css = "#prompt-demo")
+    WebElement promptBoxMessage;
+
+    @FindBy(xpath = "//button[@onclick='myPromptFunction()']")
+    WebElement javaScriptPromptBoxButton;
+
     public JavaScriptAlertsPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -44,6 +50,17 @@ public class JavaScriptAlertsPage {
         WaitForElement.waitUntilElementIsClickable(javaScriptConfirmBoxButton);
         javaScriptConfirmBoxButton.click();
         logger.info("Click JavaScript Confirm Box button");
+    }
+
+    public void clickJavaScriptPromptBoxButton() {
+        WaitForElement.waitUntilElementIsClickable(javaScriptPromptBoxButton);
+        javaScriptPromptBoxButton.click();
+        logger.info("Click JavaScript Prompt Box button");
+    }
+
+    public void sendKeysToPromptBox(String message) {
+        waitForAlert();
+        alert.sendKeys(message);
     }
 
     public void closeAlertBox() {
@@ -68,4 +85,9 @@ public class JavaScriptAlertsPage {
         return confirmationMessage.getText();
     }
 
+    public String getPromptBoxMessage() {
+        WaitForElement.waitUntilElementIsVisible(promptBoxMessage);
+        logger.info("Get Prompt Box message");
+        return promptBoxMessage.getText();
+    }
 }
