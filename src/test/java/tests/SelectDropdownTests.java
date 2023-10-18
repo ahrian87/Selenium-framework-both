@@ -32,8 +32,26 @@ public class SelectDropdownTests extends TestBase {
         basicExamplesPage.clickSelectDropdownListButton();
 
         SelectDropdownPage selectDropdownPage = new SelectDropdownPage();
-        selectDropdownPage.selectOneStateAndCheckIt("Ohio");
+        selectDropdownPage.selectState("Ohio");
+        selectDropdownPage.clickFirstSelectedButton();
 
         assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "First selected option is : Ohio");
+    }
+
+    @Test
+    public void selectMultipleStatesTest() {
+        LandingPage landingPage = new LandingPage();
+        landingPage.clickOnStartButton();
+
+        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
+        basicExamplesPage.clickSelectDropdownListButton();
+
+        SelectDropdownPage selectDropdownPage = new SelectDropdownPage();
+        selectDropdownPage.selectState("Ohio");
+        selectDropdownPage.selectState("Texas");
+        selectDropdownPage.selectState("Washington");
+
+        selectDropdownPage.clickGetAllSelectedButton();
+        assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "Options selected are : Ohio,Texas,Washington");
     }
 }

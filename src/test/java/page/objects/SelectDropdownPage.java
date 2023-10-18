@@ -29,6 +29,9 @@ public class SelectDropdownPage extends TestBase {
     @FindBy(css = "p.getall-selected")
     WebElement selectStateMessage;
 
+    @FindBy(xpath = "//button[@id='printAll']")
+    WebElement getAllSelectedButton;
+
     public SelectDropdownPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
         selectDaySelect = new Select(selectDayDropdown);
@@ -45,9 +48,12 @@ public class SelectDropdownPage extends TestBase {
         return selectDaySelect.getFirstSelectedOption().getText();
     }
 
-    public void selectOneStateAndCheckIt(String state) {
+    public void selectState(String state) {
         selectStateSelect.selectByVisibleText(state);
         logger.info("Select one state - " + state);
+    }
+
+    public void clickFirstSelectedButton() {
         WaitForElement.waitUntilElementIsVisible(firstSelectedButton);
         firstSelectedButton.click();
         logger.info("Click First Selected button");
@@ -56,5 +62,11 @@ public class SelectDropdownPage extends TestBase {
     public String getSelectedStateMessageValue() {
         logger.info("Get selected state message value");
         return selectStateMessage.getText();
+    }
+
+    public void clickGetAllSelectedButton() {
+        WaitForElement.waitUntilElementIsVisible(getAllSelectedButton);
+        getAllSelectedButton.click();
+        logger.info("Click Get All Selected button");
     }
 }
