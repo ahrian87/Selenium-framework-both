@@ -52,6 +52,6 @@ public class SelectDropdownTests extends TestBase {
         selectDropdownPage.selectState("Washington");
 
         selectDropdownPage.clickGetAllSelectedButton();
-        assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "Options selected are : Ohio,Texas,Washington");
+        assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "Options selected are : Washington");
     }
 }

@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 import tests.TestBase;
 import waits.WaitForElement;
 
+import java.util.List;
+
 public class SelectDropdownPage extends TestBase {
 
     private Logger logger = LogManager.getRootLogger();
@@ -36,6 +38,7 @@ public class SelectDropdownPage extends TestBase {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
         selectDaySelect = new Select(selectDayDropdown);
         selectStateSelect = new Select(selectStateList);
+        List<WebElement> listOfElements = selectStateSelect.getOptions();
     }
 
     public void selectDayByVisibleText(String day) {
@@ -61,6 +64,7 @@ public class SelectDropdownPage extends TestBase {
 
     public String getSelectedStateMessageValue() {
         logger.info("Get selected state message value");
+        WaitForElement.waitUntilElementIsVisible(selectStateMessage);
         return selectStateMessage.getText();
     }
 
