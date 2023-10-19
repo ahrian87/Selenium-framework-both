@@ -23,5 +23,4 @@ public class LandingPage {
         startButton.click();
         logger.info("Clicked on Enter Store link");
     }
-
 }

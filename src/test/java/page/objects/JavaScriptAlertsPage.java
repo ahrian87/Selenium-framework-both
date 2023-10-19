@@ -34,11 +34,6 @@ public class JavaScriptAlertsPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    private void waitForAlert() {
-        alert = DriverManager.getWebDriver().switchTo().alert();
-        WaitForElement.waitUntilAlertIsVisible(alert);
-        logger.info("Wait for alert to appear");
-    }
 
     public void clickJavaScriptAlertBoxButton() {
         WaitForElement.waitUntilElementIsClickable(javaScriptAlertBoxButton);
@@ -58,6 +53,18 @@ public class JavaScriptAlertsPage {
         logger.info("Click JavaScript Prompt Box button");
     }
 
+    private void waitForAlert() {
+        alert = DriverManager.getWebDriver().switchTo().alert();
+        WaitForElement.waitUntilAlertIsVisible(alert);
+        logger.info("Wait for alert to appear");
+    }
+
+    public boolean isAlertVisible() {
+        waitForAlert();
+        logger.info("Check if alert is displayed");
+        return alert.getText() != null;
+    }
+
     public void sendKeysToPromptBox(String message) {
         waitForAlert();
         alert.sendKeys(message);
@@ -71,12 +78,6 @@ public class JavaScriptAlertsPage {
     public void dismissAlertBox() {
         alert.dismiss();
         logger.info("Close alert box with Cancel button");
-    }
-
-    public boolean isAlertVisible() {
-        waitForAlert();
-        logger.info("Check if alert is displayed");
-        return alert.getText() != null;
     }
 
     public String getConfirmationMessage() {
