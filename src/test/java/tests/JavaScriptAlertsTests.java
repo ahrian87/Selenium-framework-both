@@ -78,11 +78,7 @@ public class JavaScriptAlertsTests extends TestBase {
 
         javaScriptAlertsPage.sendKeysToPromptBox("test message");
 
-        try {
-            OtherWaits.waitForXSeconds("3");
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        OtherWaits.waitForXSeconds("3");
 
         javaScriptAlertsPage.closeAlertBox();
 
