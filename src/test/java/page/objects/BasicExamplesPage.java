@@ -29,7 +29,7 @@ public class BasicExamplesPage {
     @FindBy(css="a[href='./window-popup-modal-demo.html'][class='list-group-item']")
     private WebElement windowPopupModalButton;
 
-    @FindBy(css="a[href='./boostrap-alert-messages-demo.html'][class='list-group-item']")
+    @FindBy(css="a[href='./bootstrap-alert-messages-demo.html'][class='list-group-item']")
     private WebElement bootstrapAlertsButton;
 
     @FindBy(css="a[href='./bootstrap-modal-demo.html'][class='list-group-item']")

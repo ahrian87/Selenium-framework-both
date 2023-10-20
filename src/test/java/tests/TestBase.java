@@ -10,7 +10,6 @@ import java.time.Duration;
 
 public class TestBase {
 
-
     @BeforeMethod
     public void beforeTest() {
         DriverManager.getWebDriver();
@@ -22,5 +21,4 @@ public class TestBase {
     public void afterTest() {
         DriverManager.disposeDriver();
     }
-
 }

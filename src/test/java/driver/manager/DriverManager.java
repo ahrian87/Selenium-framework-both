@@ -11,12 +11,10 @@ public class DriverManager {
     }
 
     public static WebDriver getWebDriver() {
-
         if (driver == null) {
             System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
             driver = new ChromeDriver();
         }
-
         return driver;
     }
 
