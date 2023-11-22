@@ -38,35 +38,40 @@ public class SimpleFormPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void typeIntoInputMessageField(String message) {
+    public SimpleFormPage typeIntoInputMessageField(String message) {
         WaitForElement.waitUntilElementIsVisible(inputMessageField);
         inputMessageField.sendKeys(message);
         logger.info("Typed into input message field - {}", message);
+        return this;
     }
 
-    public void clickShowMessageButton() {
+    public SimpleFormPage clickShowMessageButton() {
         showMessageButton.click();
         logger.info("Clicked on Show Message button");
+        return this;
     }
 
     public String getMessage() {
         return showMessageValue.getText();
     }
 
-    public void typeIntoEnterAInputField(String aInput) {
+    public SimpleFormPage typeIntoEnterAInputField(String aInput) {
         WaitForElement.waitUntilElementIsVisible(enterAInputField);
         enterAInputField.sendKeys(aInput);
         logger.info("Type into Enter A input field - {}", aInput);
+        return this;
     }
 
-    public void typeIntoEnterBInputField(String bInput) {
+    public SimpleFormPage typeIntoEnterBInputField(String bInput) {
         enterBInputField.sendKeys(bInput);
         logger.info("Type into Enter B input field - {}", bInput);
+        return this;
     }
 
-    public void clickGetTotalButton() {
+    public SimpleFormPage clickGetTotalButton() {
         getTotalButton.click();
         logger.info("Clicked on Get Total button");
+        return this;
     }
 
     public String getTotalValue() {
