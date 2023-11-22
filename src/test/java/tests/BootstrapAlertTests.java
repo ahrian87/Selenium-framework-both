@@ -19,6 +19,9 @@ public class BootstrapAlertTests extends TestBase {
         basicExamplesPage.clickBootstrapAlertsButton();
 
         BootstrapAlertsPage bootstrapAlertsPage = new BootstrapAlertsPage();
+
+        assertFalse(bootstrapAlertsPage.isAutocloseableMessageDisplayed());
+
         bootstrapAlertsPage.clickAutocloseableButtonMessage();
 
         assertTrue(bootstrapAlertsPage.isAutocloseableMessageDisplayed());

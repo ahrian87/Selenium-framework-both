@@ -50,7 +50,7 @@ public class SelectDropdownTests extends TestBase {
         selectDropdownPage.selectState("Ohio");
         selectDropdownPage.selectState("Texas");
         selectDropdownPage.selectState("Washington");
-
+        // do poprawy - średnia walidacja
         selectDropdownPage.clickGetAllSelectedButton();
         assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "Options selected are : Washington");
     }
