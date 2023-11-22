@@ -49,28 +49,32 @@ public class RadioButtonsPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickMaleButton() {
+    public RadioButtonsPage clickMaleButton() {
         WaitForElement.waitUntilElementIsVisible(maleButton);
         maleButton.click();
         logger.info("Click on Male button");
+        return this;
     }
 
-    public void clickFemaleButton() {
+    public RadioButtonsPage clickFemaleButton() {
         WaitForElement.waitUntilElementIsVisible(femaleButton);
         femaleButton.click();
         logger.info("Click on Female button");
+        return this;
     }
 
-    public void clickCheckedValueButton() {
+    public RadioButtonsPage clickCheckedValueButton() {
         WaitForElement.waitUntilElementIsVisible(checkedValueButton);
         checkedValueButton.click();
         logger.info("Click on Get Checked value button");
+        return this;
     }
 
-    public void clickGetValuesButton() {
+    public RadioButtonsPage clickGetValuesButton() {
         WaitForElement.waitUntilElementIsClickable(getValuesButton);
         getValuesButton.click();
         logger.info("Click on Get values button");
+        return this;
     }
 
     public String getRadioButtonMessageText() {
@@ -85,34 +89,39 @@ public class RadioButtonsPage {
         return groupRadioButtonTextField.getText();
     }
 
-    public void clickMaleGroupButton() {
+    public RadioButtonsPage clickMaleGroupButton() {
         WaitForElement.waitUntilElementIsClickable(maleGroupButton);
         maleGroupButton.click();
         logger.info("Click on Male button in group radio buttons section");
+        return this;
     }
 
-    public void clickFemaleGroupButton() {
+    public RadioButtonsPage clickFemaleGroupButton() {
         WaitForElement.waitUntilElementIsClickable(femaleGroupButton);
         femaleGroupButton.click();
         logger.info("Click on Female button in group radio buttons section");
+        return this;
     }
 
-    public void clickFirstAgeGroupButton() {
+    public RadioButtonsPage clickFirstAgeGroupButton() {
         WaitForElement.waitUntilElementIsClickable(firstAgeGroup);
         firstAgeGroup.click();
         logger.info("Click on first age group button");
+        return this;
     }
 
-    public void clickSecondAgeGroupButton() {
+    public RadioButtonsPage clickSecondAgeGroupButton() {
         WaitForElement.waitUntilElementIsClickable(firstAgeGroup);
         secondAgeGroup.click();
         logger.info("Click on second age group button");
+        return this;
     }
 
-    public void clickThirdAgeGroupButton() {
+    public RadioButtonsPage clickThirdAgeGroupButton() {
         WaitForElement.waitUntilElementIsClickable(firstAgeGroup);
         thirdAgeGroup.click();
         logger.info("Click on third age group button");
+        return this;
     }
 
     public boolean isMaleButtonSelected() {
