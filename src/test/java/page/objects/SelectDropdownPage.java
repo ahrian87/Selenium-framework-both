@@ -41,9 +41,10 @@ public class SelectDropdownPage extends TestBase {
         List<WebElement> listOfElements = selectStateSelect.getOptions();
     }
 
-    public void selectDayByVisibleText(String day) {
+    public SelectDropdownPage selectDayByVisibleText(String day) {
         selectDaySelect.selectByVisibleText(day);
         logger.info("Select chosen day - " + day);
+        return this;
     }
 
     public String getSelectedOptionValue() {
@@ -51,15 +52,17 @@ public class SelectDropdownPage extends TestBase {
         return selectDaySelect.getFirstSelectedOption().getText();
     }
 
-    public void selectState(String state) {
+    public SelectDropdownPage selectState(String state) {
         selectStateSelect.selectByVisibleText(state);
         logger.info("Select one state - " + state);
+        return this;
     }
 
-    public void clickFirstSelectedButton() {
+    public SelectDropdownPage clickFirstSelectedButton() {
         WaitForElement.waitUntilElementIsVisible(firstSelectedButton);
         firstSelectedButton.click();
         logger.info("Click First Selected button");
+        return this;
     }
 
     public String getSelectedStateMessageValue() {
@@ -68,9 +71,10 @@ public class SelectDropdownPage extends TestBase {
         return selectStateMessage.getText();
     }
 
-    public void clickGetAllSelectedButton() {
+    public SelectDropdownPage clickGetAllSelectedButton() {
         WaitForElement.waitUntilElementIsVisible(getAllSelectedButton);
         getAllSelectedButton.click();
         logger.info("Click Get All Selected button");
+        return this;
     }
 }
