@@ -39,46 +39,53 @@ public class CheckboxPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickOnFirstCheckbox() {
+    public CheckboxPage clickOnFirstCheckbox() {
         WaitForElement.waitUntilElementIsClickable(firstCheckbox);
         firstCheckbox.click();
         logger.info("Clicked on first checkbox");
+        return this;
     }
 
-    public void clickOnSecondCheckbox() {
+    public CheckboxPage clickOnSecondCheckbox() {
         WaitForElement.waitUntilElementIsClickable(secondCheckbox);
         secondCheckbox.click();
         logger.info("Clicked on second checkbox");
+        return this;
     }
 
-    public void clickOnFirstOptionCheckbox() {
+    public CheckboxPage clickOnFirstOptionCheckbox() {
         WaitForElement.waitUntilElementIsClickable(firstOptionCheckbox);
         firstOptionCheckbox.click();
         logger.info("Clicked on Option 1 checkbox");
+        return this;
     }
 
-    public void clickOnSecondOptionCheckbox() {
+    public CheckboxPage clickOnSecondOptionCheckbox() {
         WaitForElement.waitUntilElementIsClickable(secondOptionCheckbox);
         secondOptionCheckbox.click();
         logger.info("Clicked on Option 2 checkbox");
+        return this;
     }
 
-    public void clickOnThirdOptionCheckbox() {
+    public CheckboxPage clickOnThirdOptionCheckbox() {
         WaitForElement.waitUntilElementIsClickable(thirdOptionCheckbox);
         thirdOptionCheckbox.click();
         logger.info("Clicked on Option 3 checkbox");
+        return this;
     }
 
-    public void clickOnFourthOptionCheckbox() {
+    public CheckboxPage clickOnFourthOptionCheckbox() {
         WaitForElement.waitUntilElementIsClickable(fourthOptionCheckbox);
         fourthOptionCheckbox.click();
         logger.info("Clicked on Option 4 checkbox");
+        return this;
     }
 
-    public void clickOnCheckAllButton() {
+    public CheckboxPage clickOnCheckAllButton() {
         WaitForElement.waitUntilElementIsClickable(checkAllButton);
         checkAllButton.click();
         logger.info("Clicked on Check All button");
+        return this;
     }
 
     public boolean isSuccessMessageDisplayed() {
