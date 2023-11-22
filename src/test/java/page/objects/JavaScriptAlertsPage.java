@@ -35,22 +35,25 @@ public class JavaScriptAlertsPage {
     }
 
 
-    public void clickJavaScriptAlertBoxButton() {
+    public JavaScriptAlertsPage clickJavaScriptAlertBoxButton() {
         WaitForElement.waitUntilElementIsClickable(javaScriptAlertBoxButton);
         javaScriptAlertBoxButton.click();
         logger.info("Click JavaScript Alert Box button");
+        return this;
     }
 
-    public void clickJavaScriptConfirmBoxButton() {
+    public JavaScriptAlertsPage clickJavaScriptConfirmBoxButton() {
         WaitForElement.waitUntilElementIsClickable(javaScriptConfirmBoxButton);
         javaScriptConfirmBoxButton.click();
         logger.info("Click JavaScript Confirm Box button");
+        return this;
     }
 
-    public void clickJavaScriptPromptBoxButton() {
+    public JavaScriptAlertsPage clickJavaScriptPromptBoxButton() {
         WaitForElement.waitUntilElementIsClickable(javaScriptPromptBoxButton);
         javaScriptPromptBoxButton.click();
         logger.info("Click JavaScript Prompt Box button");
+        return this;
     }
 
     private void waitForAlert() {
@@ -65,19 +68,23 @@ public class JavaScriptAlertsPage {
         return alert.getText() != null;
     }
 
-    public void sendKeysToPromptBox(String message) {
+    public JavaScriptAlertsPage sendKeysToPromptBox(String message) {
         waitForAlert();
         alert.sendKeys(message);
+        logger.info("Text sent to prompt message box");
+        return this;
     }
 
-    public void closeAlertBox() {
+    public JavaScriptAlertsPage closeAlertBox() {
         alert.accept();
         logger.info("Close alert box with OK button");
+        return this;
     }
 
-    public void dismissAlertBox() {
+    public JavaScriptAlertsPage dismissAlertBox() {
         alert.dismiss();
         logger.info("Close alert box with Cancel button");
+        return this;
     }
 
     public String getConfirmationMessage() {
