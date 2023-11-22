@@ -40,51 +40,45 @@ public class BasicExamplesPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickSimpleFormDemoButton() {
+    public SimpleFormPage clickSimpleFormDemoButton() {
         WaitForElement.waitUntilElementIsClickable(simpleFormDemoButton);
         simpleFormDemoButton.click();
         logger.info("Clicked on Simple Form Demo button");
+        return new SimpleFormPage();
     }
 
-    public void clickCheckBoxDemoButton() {
+    public CheckboxPage clickCheckBoxDemoButton() {
         WaitForElement.waitUntilElementIsClickable(checkBoxDemoButton);
         checkBoxDemoButton.click();
         logger.info("Clicked on Check Box Demo button");
+        return new CheckboxPage();
     }
 
-    public void clickRadioButtonsDemoButton() {
+    public RadioButtonsPage clickRadioButtonsDemoButton() {
         WaitForElement.waitUntilElementIsClickable(radioButtonsDemoButton);
         radioButtonsDemoButton.click();
         logger.info("Clicked on Radio Buttons Demo button");
+        return new RadioButtonsPage();
     }
 
-    public void clickSelectDropdownListButton() {
+    public SelectDropdownPage clickSelectDropdownListButton() {
         WaitForElement.waitUntilElementIsClickable(selectDropdownListButton);
         selectDropdownListButton.click();
         logger.info("Clicked on Select Dropdown List button");
+        return new SelectDropdownPage();
     }
 
-    public void clickJavascriptAlertsButton() {
+    public JavaScriptAlertsPage clickJavascriptAlertsButton() {
         WaitForElement.waitUntilElementIsClickable(javascriptAlertsButton);
         javascriptAlertsButton.click();
         logger.info("Clicked on Javascript Alerts button");
+        return new JavaScriptAlertsPage();
     }
 
-    public void clickWindowPopupModalButton() {
-        WaitForElement.waitUntilElementIsClickable(windowPopupModalButton);
-        windowPopupModalButton.click();
-        logger.info("Clicked on Window Popup Modal button");
-    }
-
-    public void clickBootstrapAlertsButton() {
+    public BootstrapAlertsPage clickBootstrapAlertsButton() {
         WaitForElement.waitUntilElementIsClickable(bootstrapAlertsButton);
         bootstrapAlertsButton.click();
         logger.info("Clicked on Bootstrap Alerts button");
-    }
-
-    public void clickBootstrapModalsButton() {
-        WaitForElement.waitUntilElementIsClickable(bootstrapModalsButton);
-        bootstrapModalsButton.click();
-        logger.info("Clicked on Bootstrap Modals button");
+        return new BootstrapAlertsPage();
     }
 }
