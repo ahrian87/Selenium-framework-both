@@ -18,9 +18,10 @@ public class LandingPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickOnStartButton() {
+    public BasicExamplesPage clickOnStartButton() {
         WaitForElement.waitUntilElementIsClickable(startButton);
         startButton.click();
         logger.info("Clicked on Enter Store link");
+        return new BasicExamplesPage();
     }
 }

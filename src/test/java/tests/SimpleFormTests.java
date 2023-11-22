@@ -11,10 +11,9 @@ public class SimpleFormTests extends TestBase{
     @Test
     public void fillingSimpleFormWithBasicTextTest() {
         LandingPage landingPage = new LandingPage();
-        landingPage.clickOnStartButton();
-
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
-        basicExamplesPage.clickSimpleFormDemoButton();
+        landingPage
+                .clickOnStartButton()
+                .clickSimpleFormDemoButton();
 
         SimpleFormPage simpleFormPage = new SimpleFormPage();
         simpleFormPage.typeIntoInputMessageField("hello world");
