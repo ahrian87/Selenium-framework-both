@@ -22,10 +22,11 @@ public class BootstrapAlertsPage {
     @FindBy(xpath = "//div[@class='alert alert-success alert-autocloseable-success']")
     WebElement autocloseableMessage;
 
-    public void clickAutocloseableButtonMessage() {
+    public BootstrapAlertsPage clickAutocloseableButtonMessage() {
         WaitForElement.waitUntilElementIsClickable(autocloseableButton);
         autocloseableButton.click();
         logger.info("Click Autocloseable message button");
+        return this;
     }
 
     public boolean isAutocloseableMessageDisplayed() {
