@@ -3,7 +3,6 @@ package tests;
 import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
 import page.objects.CheckboxPage;
-import page.objects.LandingPage;
 
 import static navigation.ApplicationURLs.CHECKBOX_URL;
 import static org.testng.Assert.assertEquals;

@@ -2,7 +2,6 @@ package tests;
 
 import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
-import page.objects.LandingPage;
 import page.objects.RadioButtonsPage;
 
 import static navigation.ApplicationURLs.RADIO_BUTTONS_URL;

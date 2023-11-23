@@ -2,7 +2,6 @@ package tests;
 
 import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
-import page.objects.LandingPage;
 import page.objects.SimpleFormPage;
 
 import static navigation.ApplicationURLs.SIMPLE_FORM_URL;
