@@ -22,14 +22,12 @@ public class SimpleFormTests extends TestBase{
 
     @Test
     public void fillingTwoInputFieldsFormTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickSimpleFormDemoButton()
+        DriverUtils.navigateToPage(SIMPLE_FORM_URL);
+        SimpleFormPage simpleFormPage = new SimpleFormPage();
+        simpleFormPage
                 .typeIntoEnterAInputField("2")
                 .typeIntoEnterBInputField("3")
                 .clickGetTotalButton();
-        SimpleFormPage simpleFormPage = new SimpleFormPage();
         String totalValue = simpleFormPage.getTotalValue();
         assertEquals(totalValue, "5");
     }
