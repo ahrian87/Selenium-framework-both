@@ -10,24 +10,18 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class BootstrapAlertTests extends TestBase {
+
     @Test
     public void checkAutocloseableMessage() {
         LandingPage landingPage = new LandingPage();
-        landingPage.clickOnStartButton();
-
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
-        basicExamplesPage.clickBootstrapAlertsButton();
-
+        landingPage
+                .clickOnStartButton()
+                .clickBootstrapAlertsButton();
         BootstrapAlertsPage bootstrapAlertsPage = new BootstrapAlertsPage();
-
         assertFalse(bootstrapAlertsPage.isAutocloseableMessageDisplayed());
-
         bootstrapAlertsPage.clickAutocloseableButtonMessage();
-
         assertTrue(bootstrapAlertsPage.isAutocloseableMessageDisplayed());
-
         OtherWaits.waitForXSeconds("7");
-
         assertFalse(bootstrapAlertsPage.isAutocloseableMessageDisplayed());
     }
 }
