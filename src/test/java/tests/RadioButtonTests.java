@@ -1,9 +1,11 @@
 package tests;
 
+import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
 import page.objects.LandingPage;
 import page.objects.RadioButtonsPage;
 
+import static navigation.ApplicationURLs.RADIO_BUTTONS_URL;
 import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.*;
 
@@ -11,12 +13,10 @@ public class RadioButtonTests extends TestBase {
 
     @Test
     public void getCheckedValueWithoutAnyButtonsTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickRadioButtonsDemoButton()
-                .clickCheckedValueButton();
+        DriverUtils.navigateToPage(RADIO_BUTTONS_URL);
         RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage
+                .clickCheckedValueButton();
         assertFalse(radioButtonsPage.isMaleButtonSelected());
         assertFalse(radioButtonsPage.isFemaleButtonSelected());
         assertEquals(radioButtonsPage.getRadioButtonMessageText(), "Radio button is Not checked");
@@ -24,12 +24,10 @@ public class RadioButtonTests extends TestBase {
 
     @Test
     public void selectingMaleButtonTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickRadioButtonsDemoButton()
-                .clickMaleButton();
+        DriverUtils.navigateToPage(RADIO_BUTTONS_URL);
         RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage
+                .clickMaleButton();
         assertTrue(radioButtonsPage.isMaleButtonSelected());
 
         radioButtonsPage.clickCheckedValueButton();
@@ -38,12 +36,10 @@ public class RadioButtonTests extends TestBase {
 
     @Test
     public void selectingFemaleButtonTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickRadioButtonsDemoButton()
-                .clickFemaleButton();
+        DriverUtils.navigateToPage(RADIO_BUTTONS_URL);
         RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage
+                .clickFemaleButton();
         assertTrue(radioButtonsPage.isFemaleButtonSelected());
 
         radioButtonsPage.clickCheckedValueButton();
@@ -52,52 +48,44 @@ public class RadioButtonTests extends TestBase {
 
     @Test
     public void groupButtonsNoSelectionTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickRadioButtonsDemoButton()
-                .clickGetValuesButton();
+        DriverUtils.navigateToPage(RADIO_BUTTONS_URL);
         RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage
+                .clickGetValuesButton();
         assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex :\n" +
                 "Age group:");
     }
 
     @Test
     public void groupButtonsMaleButtonSelectedTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickRadioButtonsDemoButton()
+        DriverUtils.navigateToPage(RADIO_BUTTONS_URL);
+        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage
                 .clickMaleGroupButton()
                 .clickGetValuesButton();
-        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
         assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex : Male\n" +
                 "Age group:");
     }
 
     @Test
     public void groupButtonsFemaleButtonSelectedTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickRadioButtonsDemoButton()
+        DriverUtils.navigateToPage(RADIO_BUTTONS_URL);
+        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage
                 .clickFemaleGroupButton()
                 .clickGetValuesButton();
-        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
         assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex : Female\n" +
                 "Age group:");
     }
 
     @Test
     public void genderAndAgeSelectedTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickRadioButtonsDemoButton()
+        DriverUtils.navigateToPage(RADIO_BUTTONS_URL);
+        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
+        radioButtonsPage
                 .clickMaleGroupButton()
                 .clickFirstAgeGroupButton()
                 .clickGetValuesButton();
-        RadioButtonsPage radioButtonsPage = new RadioButtonsPage();
         assertEquals(radioButtonsPage.getGroupRadioButtonMessageText(), "Sex : Male\n" +
                 "Age group: 0 - 5");
 
