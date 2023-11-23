@@ -12,45 +12,37 @@ public class SelectDropdownTests extends TestBase {
     @Test
     public void selectDayTest() {
         LandingPage landingPage = new LandingPage();
-        landingPage.clickOnStartButton();
-
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
-        basicExamplesPage.clickSelectDropdownListButton();
-
+        landingPage
+                .clickOnStartButton()
+                .clickSelectDropdownListButton()
+                .selectDayByVisibleText("Monday");
         SelectDropdownPage selectDropdownPage = new SelectDropdownPage();
-        selectDropdownPage.selectDayByVisibleText("Monday");
-
         assertEquals(selectDropdownPage.getSelectedOptionValue(), "Monday");
     }
 
     @Test
     public void selectOneStateTest() {
         LandingPage landingPage = new LandingPage();
-        landingPage.clickOnStartButton();
-
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
-        basicExamplesPage.clickSelectDropdownListButton();
-
+        landingPage
+                .clickOnStartButton()
+                .clickSelectDropdownListButton()
+                .selectState("Ohio")
+                .clickFirstSelectedButton();
         SelectDropdownPage selectDropdownPage = new SelectDropdownPage();
-        selectDropdownPage.selectState("Ohio");
-        selectDropdownPage.clickFirstSelectedButton();
-
         assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "First selected option is : Ohio");
     }
 
     @Test
     public void selectMultipleStatesTest() {
         LandingPage landingPage = new LandingPage();
-        landingPage.clickOnStartButton();
-
-        BasicExamplesPage basicExamplesPage = new BasicExamplesPage();
-        basicExamplesPage.clickSelectDropdownListButton();
-
-        SelectDropdownPage selectDropdownPage = new SelectDropdownPage();
-        selectDropdownPage.selectState("Ohio");
-        selectDropdownPage.selectState("Texas");
-        selectDropdownPage.selectState("Washington");
+        landingPage
+                .clickOnStartButton()
+                .clickSelectDropdownListButton()
+                .selectState("Ohio")
+                .selectState("Texas")
+                .selectState("Washington");
         // do poprawy - średnia walidacja
+        SelectDropdownPage selectDropdownPage = new SelectDropdownPage();
         selectDropdownPage.clickGetAllSelectedButton();
         assertEquals(selectDropdownPage.getSelectedStateMessageValue(), "Options selected are : Washington");
     }
