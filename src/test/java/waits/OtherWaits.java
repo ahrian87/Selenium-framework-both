@@ -1,5 +1,8 @@
 package waits;
 
+import driver.manager.DriverManager;
+import org.openqa.selenium.Alert;
+
 public class OtherWaits {
 
     public static void waitForXSeconds(String x) {

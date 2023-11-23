@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import page.objects.BasicExamplesPage;
 import page.objects.BootstrapAlertsPage;
 import page.objects.LandingPage;
 import waits.OtherWaits;
