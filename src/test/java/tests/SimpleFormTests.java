@@ -1,21 +1,21 @@
 package tests;
 
+import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
 import page.objects.LandingPage;
 import page.objects.SimpleFormPage;
 
+import static navigation.ApplicationURLs.SIMPLE_FORM_URL;
 import static org.testng.Assert.assertEquals;
 
 public class SimpleFormTests extends TestBase{
     @Test
     public void fillingSimpleFormWithBasicTextTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickSimpleFormDemoButton()
+        DriverUtils.navigateToPage(SIMPLE_FORM_URL);
+        SimpleFormPage simpleFormPage = new SimpleFormPage();
+        simpleFormPage
                 .typeIntoInputMessageField("hello world")
                 .clickShowMessageButton();
-        SimpleFormPage simpleFormPage = new SimpleFormPage();
         String message = simpleFormPage.getMessage();
         assertEquals(message, "hello world");
     }
