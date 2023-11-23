@@ -1,10 +1,11 @@
 package tests;
 
+import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
 import page.objects.JavaScriptAlertsPage;
-import page.objects.LandingPage;
 import waits.OtherWaits;
 
+import static navigation.ApplicationURLs.JAVASCRIPT_ALERT_URL;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -12,24 +13,20 @@ public class JavaScriptAlertsTests extends TestBase {
 
     @Test
     public void closeAlertBoxTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickJavascriptAlertsButton()
-                .clickJavaScriptAlertBoxButton();
+        DriverUtils.navigateToPage(JAVASCRIPT_ALERT_URL);
         JavaScriptAlertsPage javaScriptAlertsPage = new JavaScriptAlertsPage();
+        javaScriptAlertsPage
+                .clickJavaScriptAlertBoxButton();
         assertTrue(javaScriptAlertsPage.isAlertVisible());
         javaScriptAlertsPage.closeAlertBox();
     }
 
     @Test
     public void closeConfirmBoxWithOk() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickJavascriptAlertsButton()
-                .clickJavaScriptConfirmBoxButton();
+        DriverUtils.navigateToPage(JAVASCRIPT_ALERT_URL);
         JavaScriptAlertsPage javaScriptAlertsPage = new JavaScriptAlertsPage();
+        javaScriptAlertsPage
+                .clickJavaScriptConfirmBoxButton();
         assertTrue(javaScriptAlertsPage.isAlertVisible());
         javaScriptAlertsPage.closeAlertBox();
         assertEquals(javaScriptAlertsPage.getConfirmationMessage(), "You pressed OK!");
@@ -37,12 +34,10 @@ public class JavaScriptAlertsTests extends TestBase {
 
     @Test
     public void closeConfirmBoxWithCancel() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickJavascriptAlertsButton()
-                .clickJavaScriptConfirmBoxButton();
+        DriverUtils.navigateToPage(JAVASCRIPT_ALERT_URL);
         JavaScriptAlertsPage javaScriptAlertsPage = new JavaScriptAlertsPage();
+        javaScriptAlertsPage
+                .clickJavaScriptConfirmBoxButton();
         assertTrue(javaScriptAlertsPage.isAlertVisible());
         javaScriptAlertsPage.dismissAlertBox();
         assertEquals(javaScriptAlertsPage.getConfirmationMessage(), "You pressed Cancel!");
@@ -50,12 +45,10 @@ public class JavaScriptAlertsTests extends TestBase {
 
     @Test
     public void closePromptBoxWithText() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickJavascriptAlertsButton()
-                .clickJavaScriptPromptBoxButton();
+        DriverUtils.navigateToPage(JAVASCRIPT_ALERT_URL);
         JavaScriptAlertsPage javaScriptAlertsPage = new JavaScriptAlertsPage();
+        javaScriptAlertsPage
+                .clickJavaScriptPromptBoxButton();
         assertTrue(javaScriptAlertsPage.isAlertVisible());
         javaScriptAlertsPage.sendKeysToPromptBox("test message");
         OtherWaits.waitForXSeconds("3");
