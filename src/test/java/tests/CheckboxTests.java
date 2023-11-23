@@ -1,9 +1,11 @@
 package tests;
 
+import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
 import page.objects.CheckboxPage;
 import page.objects.LandingPage;
 
+import static navigation.ApplicationURLs.CHECKBOX_URL;
 import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.*;
 
@@ -11,12 +13,10 @@ public class CheckboxTests extends TestBase {
 
     @Test
     public void singleCheckboxTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickCheckBoxDemoButton()
-                .clickOnFirstCheckbox();
+        DriverUtils.navigateToPage(CHECKBOX_URL);
         CheckboxPage checkboxPage = new CheckboxPage();
+        checkboxPage
+                .clickOnFirstCheckbox();
         assertTrue(checkboxPage.isSuccessMessageDisplayed());
         assertTrue(checkboxPage.isFirstCheckboxSelected());
         assertTrue(checkboxPage.isSecondCheckboxSelected());
@@ -24,13 +24,11 @@ public class CheckboxTests extends TestBase {
 
     @Test
     public void twoCheckboxesTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickCheckBoxDemoButton()
+        DriverUtils.navigateToPage(CHECKBOX_URL);
+        CheckboxPage checkboxPage = new CheckboxPage();
+        checkboxPage
                 .clickOnFirstCheckbox()
                 .clickOnSecondCheckbox();
-        CheckboxPage checkboxPage = new CheckboxPage();
         assertTrue(checkboxPage.isSuccessMessageDisplayed());
         assertTrue(checkboxPage.isFirstCheckboxSelected());
         assertFalse(checkboxPage.isSecondCheckboxSelected());
@@ -38,15 +36,13 @@ public class CheckboxTests extends TestBase {
 
     @Test
     public void checkAllOptionBoxesTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickCheckBoxDemoButton()
+        DriverUtils.navigateToPage(CHECKBOX_URL);
+        CheckboxPage checkboxPage = new CheckboxPage();
+        checkboxPage
                 .clickOnFirstOptionCheckbox()
                 .clickOnSecondOptionCheckbox()
                 .clickOnThirdOptionCheckbox()
                 .clickOnFourthOptionCheckbox();
-        CheckboxPage checkboxPage = new CheckboxPage();
         assertTrue(checkboxPage.isFirstOptionCheckboxSelected());
         assertTrue(checkboxPage.isSecondOptionCheckboxSelected());
         assertTrue(checkboxPage.isThirdOptionCheckboxSelected());
@@ -56,11 +52,9 @@ public class CheckboxTests extends TestBase {
 
     @Test
     public void checkAllOptionBoxesWithCheckAllButtonTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickCheckBoxDemoButton();
+        DriverUtils.navigateToPage(CHECKBOX_URL);
         CheckboxPage checkboxPage = new CheckboxPage();
+
         assertEquals(checkboxPage.getCheckAllButtonText(), "Check All");
         assertFalse(checkboxPage.isFirstOptionCheckboxSelected());
         assertFalse(checkboxPage.isSecondOptionCheckboxSelected());
@@ -78,10 +72,7 @@ public class CheckboxTests extends TestBase {
 
     @Test
     public void checkAllAndUncheckAllWithButtonsTest() {
-        LandingPage landingPage = new LandingPage();
-        landingPage
-                .clickOnStartButton()
-                .clickCheckBoxDemoButton();
+        DriverUtils.navigateToPage(CHECKBOX_URL);
         CheckboxPage checkboxPage = new CheckboxPage();
         assertEquals(checkboxPage.getCheckAllButtonText(), "Check All");
 
