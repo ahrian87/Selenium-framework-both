@@ -1,7 +1,9 @@
 package navigation;
 
+import configuration.AppProperties;
+
 public class ApplicationURLs {
-    public static final String APPLICATION_URL = "https://demo.seleniumeasy.com/";
+    public static final String APPLICATION_URL = AppProperties.getAllUrl();
     public static final String SIMPLE_FORM_URL = APPLICATION_URL + "basic-first-form-demo.html";
     public static final String CHECKBOX_URL = APPLICATION_URL + "basic-checkbox-demo.html";
     public static final String RADIO_BUTTONS_URL = APPLICATION_URL + "basic-radiobutton-demo.html";
