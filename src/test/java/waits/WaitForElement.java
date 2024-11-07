@@ -1,6 +1,7 @@
 package waits;
 
 import driver.manager.DriverManager;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,5 +27,10 @@ public class WaitForElement {
     public static void waitUntilElementHasText(WebElement element) {
         WebDriverWait webDriverWait = getWebDriverWait();
         webDriverWait.until(ExpectedConditions.textToBePresentInElement(element, element.getText()));
+    }
+
+    public static void waitUntilAlertIsVisible(Alert alert) {
+        WebDriverWait webDriverWait = getWebDriverWait();
+        webDriverWait.until(ExpectedConditions.alertIsPresent());
     }
 }
