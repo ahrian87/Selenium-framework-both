@@ -12,6 +12,9 @@ public class TopNaviPage {
 
     private Logger logger = LogManager.getRootLogger();
 
+    @FindBy(css="[alt='Tricentis Demo Web Shop']")
+    WebElement shopLogo;
+
     @FindBy(css="[class='ico-register']")
     WebElement registerButton;
 
@@ -56,5 +59,11 @@ public class TopNaviPage {
         WaitForElement.waitUntilElementIsClickable(wishlistButton);
         wishlistButton.click();
         logger.info("Kliknięto przycisk Wishlist");
+    }
+
+    public void clickShopLogo() {
+        WaitForElement.waitUntilElementIsClickable(shopLogo);
+        shopLogo.click();
+        logger.info("Kliknięto logo strony");
     }
 }
