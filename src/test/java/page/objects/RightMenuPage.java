@@ -8,12 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import waits.WaitForElement;
 
-public class MainPage {
+public class RightMenuPage {
 
     private Logger logger = LogManager.getRootLogger();
 
     @FindBy(css="[name='NewsletterEmail']")
-    WebElement newsletterSignUp;
+    WebElement newsletterSignUpField;
 
     @FindBy(css="[id='newsletter-subscribe-button']")
     WebElement subscribeButton;
@@ -21,19 +21,34 @@ public class MainPage {
     @FindBy(css="[class='newsletter-result-block']")
     WebElement newsletterResultBlock;
 
-    public MainPage() {
+    @FindBy(css="#pollanswers-1")
+    WebElement firstPollAnswerButton;
+
+    @FindBy(css="#pollanswers-2")
+    WebElement secondPollAnswerButton;
+
+    @FindBy(css="#pollanswers-3")
+    WebElement thirdPollAnswerButton;
+
+    @FindBy(css="#pollanswers-4")
+    WebElement fourthPollAnswerButton;
+
+    @FindBy(css="[value='Vote']")
+    WebElement votePollButton;
+
+    public RightMenuPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public MainPage typeIntoNewsletterSignUp(String emailAddress){
-        WaitForElement.waitUntilElementIsVisible(newsletterSignUp);
-        newsletterSignUp.clear();
-        newsletterSignUp.sendKeys(emailAddress);
+    public RightMenuPage typeIntoNewsletterSignUp(String emailAddress){
+        WaitForElement.waitUntilElementIsVisible(newsletterSignUpField);
+        newsletterSignUpField.clear();
+        newsletterSignUpField.sendKeys(emailAddress);
         logger.info("Wprowadzono adres email: {}", emailAddress);
         return this;
     }
 
-    public MainPage clickSubscribeButton() {
+    public RightMenuPage clickSubscribeButton() {
         WaitForElement.waitUntilElementIsClickable(subscribeButton);
         subscribeButton.click();
         logger.info("Kliknięto przycisk Subscribe");
@@ -41,8 +56,8 @@ public class MainPage {
     }
 
     public String getNewsletterFieldValue() {
-        WaitForElement.waitUntilElementHasText(newsletterSignUp);
-        return newsletterSignUp.getAttribute("value");
+        WaitForElement.waitUntilElementHasText(newsletterSignUpField);
+        return newsletterSignUpField.getAttribute("value");
     }
 
     public String getNewsletterSubscribeBlockMessage() {

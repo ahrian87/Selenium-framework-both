@@ -4,6 +4,7 @@ import driver.manager.DriverUtils;
 import org.testng.annotations.Test;
 import page.objects.SimpleFormPage;
 
+import static navigation.ApplicationURLs.APPLICATION_URL;
 import static navigation.ApplicationURLs.SIMPLE_FORM_URL;
 import static org.testng.Assert.assertEquals;
 
@@ -17,6 +18,11 @@ public class SimpleFormTests extends TestBase{
                 .clickShowMessageButton();
         String message = simpleFormPage.getMessage();
         assertEquals(message, "hello world");
+    }
+
+    @Test
+    public void openingTheMainPageTest() {
+        DriverUtils.navigateToPage(APPLICATION_URL);
     }
 
     @Test
