@@ -33,6 +33,12 @@ public class TopNaviPage {
     @FindBy(css="[class='button-1 search-box-button']")
     WebElement searchButton;
 
+    @FindBy(css="[class='ico-logout']")
+    WebElement logoutButton;
+
+    @FindBy(xpath="//div[contains(@class, 'header-links')]//a[contains(@class, 'account')]")
+    WebElement accountName;
+
     public TopNaviPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -65,5 +71,9 @@ public class TopNaviPage {
         WaitForElement.waitUntilElementIsClickable(shopLogo);
         shopLogo.click();
         logger.info("Kliknięto logo strony");
+    }
+
+    public boolean isAccountLoginVisible() {
+        return accountName.isDisplayed();
     }
 }
