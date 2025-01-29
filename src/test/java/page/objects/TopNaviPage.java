@@ -73,6 +73,13 @@ public class TopNaviPage {
         logger.info("Kliknięto logo strony");
     }
 
+    public void clickLogOutButton() {
+        WaitForElement.waitUntilElementIsVisible(logoutButton);
+        WaitForElement.waitUntilElementIsClickable(logoutButton);
+        logoutButton.click();
+        logger.info("Kliknięto przycisk Logout");
+    }
+
     public boolean isAccountLoginVisible() {
         return accountName.isDisplayed();
     }

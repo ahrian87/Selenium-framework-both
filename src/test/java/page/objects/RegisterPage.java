@@ -39,6 +39,12 @@ public class RegisterPage {
     @FindBy(css="[id='register-button']")
     WebElement registerAccountButton;
 
+    @FindBy(css="[class='result']")
+    WebElement confirmationMessage;
+
+    @FindBy(css="[class='button-1 register-continue-button']")
+    WebElement continueButton;
+
     public RegisterPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -106,4 +112,14 @@ public class RegisterPage {
         return pageTitle.getText();
     }
 
+    public String getConfirmationMessageValue() {
+        WaitForElement.waitUntilElementHasText(confirmationMessage);
+        return confirmationMessage.getText();
+    }
+
+    public void clickContinueButton() {
+        WaitForElement.waitUntilElementIsClickable(continueButton);
+        continueButton.click();
+        logger.info("Kliknięto przycisk Continue");
+    }
 }

@@ -16,5 +16,21 @@ public class RegisterTests extends TestBase{
         assertEquals(registerPage.getPageTitleValue(), "Register");
     }
 
+    @Test
+    public void registerNewAccountTest() {
+        TopNaviPage topNaviPage = new TopNaviPage();
+        topNaviPage.clickRegisterButton();
 
+        RegisterPage registerPage = new RegisterPage();
+        registerPage.clickMaleRadioButton();
+        registerPage.typeIntoFirstNameField("Mac");
+        registerPage.typeIntoLastNameField("Zet");
+        registerPage.typeIntoEmailField("test1x2w34@gmail.com");
+        registerPage.typeIntoPasswordField("123456");
+        registerPage.confirmPassword("123456");
+        registerPage.clickRegisterAccountButton();
+
+        assertEquals(registerPage.getConfirmationMessageValue(), "Your registration completed");
+        registerPage.clickContinueButton();
+    }
 }
