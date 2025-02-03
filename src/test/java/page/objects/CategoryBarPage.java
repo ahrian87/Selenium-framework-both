@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CategoryBarPage {
-    private Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     @FindBy(xpath="(//ul[contains(@class, 'top-menu')]//a[contains(@href, '/books')])[1]")
     WebElement booksCategoryBarButton;
