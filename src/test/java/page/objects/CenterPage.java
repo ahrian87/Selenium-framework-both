@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CenterPage {
 
-    private Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     public CenterPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);

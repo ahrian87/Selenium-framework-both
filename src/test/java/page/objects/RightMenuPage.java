@@ -10,7 +10,7 @@ import waits.WaitForElement;
 
 public class RightMenuPage {
 
-    private Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     @FindBy(css="[name='NewsletterEmail']")
     WebElement newsletterSignUpField;

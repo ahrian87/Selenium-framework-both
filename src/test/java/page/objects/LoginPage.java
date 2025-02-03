@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import waits.WaitForElement;
 
 public class LoginPage {
-    private Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     @FindBy(css="[class='page-title']")
     WebElement welcomeMessage;
@@ -22,6 +22,9 @@ public class LoginPage {
 
     @FindBy(css="[class='button-1 login-button']")
     WebElement loginButton;
+
+    @FindBy(css="[class='validation-summary-errors']")
+    WebElement loginSummaryError;
 
     public LoginPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
@@ -49,5 +52,10 @@ public class LoginPage {
         WaitForElement.waitUntilElementIsClickable(loginButton);
         loginButton.click();
         logger.info("Kliknięto przycisk Login");
+    }
+
+    public String getErrorMessage() {
+        WaitForElement.waitUntilElementHasText(loginSummaryError);
+        return loginSummaryError.getText();
     }
 }

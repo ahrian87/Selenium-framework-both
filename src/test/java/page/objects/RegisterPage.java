@@ -10,7 +10,7 @@ import waits.WaitForElement;
 
 public class RegisterPage {
 
-    private Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     @FindBy(css="[class='page-title']")
     WebElement pageTitle;

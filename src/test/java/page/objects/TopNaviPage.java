@@ -10,7 +10,7 @@ import waits.WaitForElement;
 
 public class TopNaviPage {
 
-    private Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     @FindBy(css="[alt='Tricentis Demo Web Shop']")
     WebElement shopLogo;
@@ -78,6 +78,13 @@ public class TopNaviPage {
         WaitForElement.waitUntilElementIsClickable(logoutButton);
         logoutButton.click();
         logger.info("Kliknięto przycisk Logout");
+    }
+
+    public void clickAccountName() {
+        WaitForElement.waitUntilElementIsVisible(accountName);
+        WaitForElement.waitUntilElementIsClickable(accountName);
+        accountName.click();
+        logger.info("Kliknięto nazwę konta");
     }
 
     public boolean isAccountLoginVisible() {

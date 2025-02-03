@@ -1,5 +1,6 @@
 package tests;
 
+import functions.FakeDataGenerator;
 import org.testng.annotations.Test;
 import page.objects.RegisterPage;
 import page.objects.TopNaviPage;
@@ -17,7 +18,7 @@ public class RegisterTests extends TestBase{
     }
 
     @Test
-    public void registerNewAccountTest() {
+    public void asUserRegisterNewAccountTest() {
         TopNaviPage topNaviPage = new TopNaviPage();
         topNaviPage.clickRegisterButton();
 
@@ -25,7 +26,7 @@ public class RegisterTests extends TestBase{
         registerPage.clickMaleRadioButton();
         registerPage.typeIntoFirstNameField("Mac");
         registerPage.typeIntoLastNameField("Zet");
-        registerPage.typeIntoEmailField("test1x2w34@gmail.com");
+        registerPage.typeIntoEmailField(FakeDataGenerator.generateFakeEmail());
         registerPage.typeIntoPasswordField("123456");
         registerPage.confirmPassword("123456");
         registerPage.clickRegisterAccountButton();

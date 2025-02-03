@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LeftMenuPage {
-    private Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     @FindBy(xpath="//ul[contains(@class, 'list')]//a[contains(@href, '/books')]")
     WebElement booksLeftMenuButton;
