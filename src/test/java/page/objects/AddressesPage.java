@@ -13,6 +13,9 @@ import waits.WaitForElement;
 public class AddressesPage {
     private static final Logger logger = LogManager.getRootLogger();
 
+    @FindBy(css="[class='page-title']")
+    WebElement pageTitle;
+
     @FindBy(css="[class='add-button']")
     WebElement addNewAddressButton;
 
@@ -39,6 +42,12 @@ public class AddressesPage {
 
     @FindBy(css="[id='Address_PhoneNumber']")
     WebElement phoneNumberField;
+
+    @FindBy(css="[value='Save']")
+    WebElement saveButton;
+
+    @FindBy(css="[value='Delete']")
+    WebElement deleteButton;
 
     public AddressesPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
@@ -70,11 +79,11 @@ public class AddressesPage {
         logger.info("Uzupełniono pole Email: {}", email);
     }
 
-    public void selectCountry() {
+    public void selectCountry(String countryName) {
         WaitForElement.waitUntilElementIsVisible(countrySelect);
         Select countryDropDown = new Select(countrySelect);
-        countryDropDown.selectByVisibleText("Poland");
-        logger.info("Wybrano kraj: Polska");
+        countryDropDown.selectByVisibleText(countryName);
+        logger.info("Wybrano kraj: {}", countryName);
     }
 
     public void fillCityField(String cityName) {
@@ -100,5 +109,16 @@ public class AddressesPage {
         String phone = FakeDataGenerator.generateFakePhoneNumber();
         phoneNumberField.sendKeys(phone);
         logger.info("Uzupełniono pole Phone number: {}", phone);
+    }
+
+    public void clickSaveButton() {
+        WaitForElement.waitUntilElementIsClickable(saveButton);
+        saveButton.click();
+        logger.info("Wciśnięto przycisk Save");
+    }
+
+    public boolean isDeleteButtonVisible() {
+        WaitForElement.waitUntilElementIsVisible(pageTitle);
+        return deleteButton.isDisplayed();
     }
 }

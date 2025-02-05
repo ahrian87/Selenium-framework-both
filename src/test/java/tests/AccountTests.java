@@ -7,6 +7,7 @@ import page.objects.MyAccountPage;
 import page.objects.TopNaviPage;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class AccountTests extends TestBase {
 
@@ -31,5 +32,19 @@ public class AccountTests extends TestBase {
         AddressesPage addressesPage = new AddressesPage();
         addressesPage.clickAddNewAddressButton();
         assertEquals(myAccountPage.getPageTitle(), "My account - Add new address");
+
+        addressesPage.fillFirstNameField("Mac");
+        addressesPage.fillLastNameField("Zet");
+        addressesPage.fillEmailFieldWithRandomValue();
+        addressesPage.selectCountry("Poland");
+        addressesPage.fillCityField("Elk");
+        addressesPage.fillAddressOneField("ul. Mickiewicza");
+        addressesPage.fillZipCodeField("19-300");
+        addressesPage.fillPhoneNumberFieldWithRandomValue();
+        addressesPage.clickSaveButton();
+
+        assertTrue(addressesPage.isDeleteButtonVisible());
+
+        topNaviPage.clickLogOutButton();
     }
 }
