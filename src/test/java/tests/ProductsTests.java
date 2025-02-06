@@ -8,7 +8,7 @@ public class ProductsTests extends TestBase {
     @Test
     public void asLoggedInUserAddProductToWishlist() {
         LeftMenuPage leftMenuPage = new LeftMenuPage();
-
+        leftMenuPage.clickApparelAndShoesCategory();
     }
 
 }

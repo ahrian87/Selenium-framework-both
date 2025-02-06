@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.WaitForElement;
 
 public class LeftMenuPage {
     private static final Logger logger = LogManager.getRootLogger();
@@ -39,5 +40,11 @@ public class LeftMenuPage {
 
     public LeftMenuPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
+    }
+
+    public void clickApparelAndShoesCategory() {
+        WaitForElement.waitUntilElementIsClickable(apparelAndShoesLeftMenuButton);
+        apparelAndShoesLeftMenuButton.click();
+        logger.info("Kliknięto przycisk Apparel & Shoes");
     }
 }
