@@ -45,6 +45,6 @@ public class LeftMenuPage {
     public void clickApparelAndShoesCategory() {
         WaitForElement.waitUntilElementIsClickable(apparelAndShoesLeftMenuButton);
         apparelAndShoesLeftMenuButton.click();
-        logger.info("Kliknięto przycisk Apparel & Shoes");
+        logger.info("Wybrano kategorię Apparel & Shoes");
     }
 }

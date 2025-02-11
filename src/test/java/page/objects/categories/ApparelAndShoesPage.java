@@ -29,6 +29,6 @@ public class ApparelAndShoesPage {
     public void clickBlueAndGreenSneaker() {
         WaitForElement.waitUntilElementIsClickable(blueAndGreenSneaker);
         blueAndGreenSneaker.click();
-        logger.info("Kliknięto produkt Blue and green Sneaker1");
+        logger.info("Kliknięto produkt Blue and green Sneakers");
     }
 }

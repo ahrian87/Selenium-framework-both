@@ -11,11 +11,17 @@ import waits.WaitForElement;
 public class WishlistPage {
     private static final Logger logger = LogManager.getRootLogger();
 
-    @FindBy(css="[class='page-title]")
+    @FindBy(css="[class='page-title']")
     WebElement pageTitle;
 
     @FindBy(css="[name='removefromcart']")
     WebElement removeFromCartCheckbox;
+
+    @FindBy(css="[name='updatecart']")
+    WebElement updateCartButton;
+
+    @FindBy(css="[class='wishlist-content']")
+    WebElement wishlistContentMessage;
 
     public WishlistPage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
@@ -30,4 +36,20 @@ public class WishlistPage {
         return removeFromCartCheckbox.isDisplayed();
     }
 
+    public void clickRemoveFromCartCheckbox() {
+        WaitForElement.waitUntilElementIsVisible(removeFromCartCheckbox);
+        removeFromCartCheckbox.click();
+        logger.info("Zaznaczono checkbox Remove");
+    }
+
+    public void clickUpdateCartButton() {
+        WaitForElement.waitUntilElementIsClickable(updateCartButton);
+        updateCartButton.click();
+        logger.info("Kliknięto przycisk Update cart");
+    }
+
+    public String getWishlistContentMessage() {
+        WaitForElement.waitUntilElementIsVisible(wishlistContentMessage);
+        return wishlistContentMessage.getText();
+    }
 }

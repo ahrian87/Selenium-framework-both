@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import page.objects.LeftMenuPage;
 import page.objects.ProductPage;
 import page.objects.TopNaviPage;
+import page.objects.WishlistPage;
 import page.objects.categories.ApparelAndShoesPage;
 
 import static org.testng.Assert.assertEquals;
@@ -12,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 public class ProductsTests extends TestBase {
 
     @Test
-    public void asLoggedInUserAddProductToWishlist() {
+    public void asLoggedInUserAddAndRemoveProductFromWishlist() {
         LeftMenuPage leftMenuPage = new LeftMenuPage();
         leftMenuPage.clickApparelAndShoesCategory();
 
@@ -28,6 +29,15 @@ public class ProductsTests extends TestBase {
         TopNaviPage topNaviPage = new TopNaviPage();
         topNaviPage.clickWishlistButton();
 
+        WishlistPage wishlistPage = new WishlistPage();
+        assertEquals(wishlistPage.getPagetitle(), "Wishlist");
+        assertTrue(wishlistPage.isRemoveCheckboxVisible());
+
+        wishlistPage.clickRemoveFromCartCheckbox();
+        wishlistPage.clickUpdateCartButton();
+        assertEquals(wishlistPage.getWishlistContentMessage(), "The wishlist is empty!");
+
+        topNaviPage.clickLogOutButton();
     }
 
 }

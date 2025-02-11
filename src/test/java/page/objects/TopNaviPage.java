@@ -24,7 +24,7 @@ public class TopNaviPage {
     @FindBy(css="[id='topcartlink']")
     WebElement cartButton;
 
-    @FindBy(css="[class='ico-wishlist]")
+    @FindBy(css="[class='ico-wishlist']")
     WebElement wishlistButton;
 
     @FindBy(css="[name='q']")
