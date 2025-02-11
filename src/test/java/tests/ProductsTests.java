@@ -1,10 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
-import page.objects.LeftMenuPage;
-import page.objects.ProductPage;
-import page.objects.TopNaviPage;
-import page.objects.WishlistPage;
+import page.objects.*;
 import page.objects.categories.ApparelAndShoesPage;
 
 import static org.testng.Assert.assertEquals;
@@ -14,6 +11,18 @@ public class ProductsTests extends TestBase {
 
     @Test
     public void asLoggedInUserAddAndRemoveProductFromWishlist() {
+        TopNaviPage topNaviPage = new TopNaviPage();
+        topNaviPage.clickLoginButton();
+
+        LoginPage loginPage = new LoginPage();
+        assertEquals(loginPage.getWelcomeMessageTest(), "Welcome, Please Sign In!");
+
+        loginPage.typeIntoEmailField("mac.zet.test@gmail.com");
+        loginPage.typeIntoPasswordField("123456");
+        loginPage.clickLoginButton();
+
+        assertTrue(topNaviPage.isAccountLoginVisible());
+
         LeftMenuPage leftMenuPage = new LeftMenuPage();
         leftMenuPage.clickApparelAndShoesCategory();
 
@@ -26,7 +35,6 @@ public class ProductsTests extends TestBase {
         productPage.clickAddToWishlistButton();
         assertTrue(productPage.isBarNotificationVisible());
 
-        TopNaviPage topNaviPage = new TopNaviPage();
         topNaviPage.clickWishlistButton();
 
         WishlistPage wishlistPage = new WishlistPage();
